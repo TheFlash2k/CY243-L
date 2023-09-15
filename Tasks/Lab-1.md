@@ -2,6 +2,35 @@
 
 ---
 
+## Instructions
+
+- You are required to complete the following tasks in the given order.
+- You are required to submit a report containing the screenshots of the commands used to complete the tasks.
+- You are required to submit the report in PDF format.
+- Before starting your work, you must clean your command history using the following command:
+
+```bash
+history -c
+```
+
+- Along with the report, you must submit your command history using the following command:
+
+```bash
+history > <roll-number>.txt
+```
+
+- PDF and TXT files must be named as `cy204l-<batch>-<roll-number>`.
+Example:
+
+```text
+cy204l-f21-210125.pdf
+```
+
+- It is recommended that you utilize [`Notion`](https://notion.so) for writing your report.
+- You are required to submit your work before the deadline.
+
+---
+
 ## Creating files and folders
 
 - Inside the `/tmp/` folder, create a new folder called `test <roll-number>` (replace `<roll-number>` with your roll number)
