@@ -49,7 +49,7 @@ This course is designed to teach students the fundamentals of penetration testin
 | Week | Topic |
 | ---- | ----- |
 | 1 | Introduction to Linux and Bash |
-| 2 | Footprint and Reconnaissance |
+| 2 | Bash Scriptinb & Footprint and Reconnaissance |
 | 3 | Scanning Networks and Enumeration |
 | 4 | Vulnerability Analysis |
 | 5 | Malware Generation and Deployment |
@@ -64,5 +64,52 @@ This course is designed to teach students the fundamentals of penetration testin
 | 13 | Post-Exploitation, Privilege Escalation and Lateral Movement |
 | 14 | Reporting |
 | - | Final Exam |
+
+---
+
+## Grading Scheme
+
+| Component | Weightage |
+| --------- | --------- |
+| Assignments | 20% |
+| Lab Tasks | 15% |
+| Quizes | 15% |
+| Midterm Exam | 20% |
+| Final Exam | 30% |
+
+## Report Format
+
+- You are required to complete the provided tasks in the given order.
+- You are required to submit a report containing the screenshots of the commands used to complete the tasks.
+- You are required to submit the report in PDF format.
+- Before starting your work, you must clean your command history using the following command:
+
+```bash
+history -c
+```
+
+- Along with the report, you must submit your command history using the following command:
+
+```bash
+history > <roll-number>.txt
+## Example:
+history > 210125.txt
+```
+
+- PDF and TXT files must be named as `cy204l-<batch>-<roll-number>`.
+Example:
+
+```text
+cy204l-f21-210125.pdf
+```
+
+- The final 2-files must be attached to the assignment submission.
+
+```text
+
+```
+
+- It is recommended that you utilize [`Notion`](https://notion.so) for writing your report.
+- You are required to submit your work before the deadline. Late submissions will lead to marks deduction.
 
 ---
