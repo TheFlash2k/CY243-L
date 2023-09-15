@@ -91,22 +91,27 @@ history -c
 - Along with the report, you must submit your command history using the following command:
 
 ```bash
-history > <roll-number>.txt
+history > cy243l-<batch>-<roll-number>.txt
 ## Example:
-history > 210125.txt
+history > cy243l-f21-210125.txt
 ```
 
-- PDF and TXT files must be named as `cy204l-<batch>-<roll-number>`.
+- PDF and TXT files must be named as `cy243l-<batch>-<roll-number>`.
 Example:
 
 ```text
-cy204l-f21-210125.pdf
+cy243l-f21-210125.pdf
 ```
 
 - The final 2-files must be attached to the assignment submission.
 
-```text
+```md
+cy243l-<batch>-<roll-number>.pdf
+cy243l-<batch>-<roll-number>.txt
 
+## Example
+cy243l-f21-210125.pdf
+cy243l-f21-210125.txt
 ```
 
 - It is recommended that you utilize [`Notion`](https://notion.so) for writing your report.
