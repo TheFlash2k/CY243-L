@@ -48,7 +48,7 @@ This is a test file
 
 ---
 
-## Creating users and groups
+## Task 1 - Creating users and groups
 
 - Create a new user called `kali-auto-user`, set its password to `test123`, and add it to the `sudo` group. Also, ensure that the home directory of this user is `/var/kali-auto-user`
 
@@ -56,17 +56,17 @@ This is a test file
 
 ---
 
-## Installing packages
+## Task 2 - Installing packages
 
 - Install the `git` package
 - Install the `curl` package
-
 - Using curl, download an image from the internet, add it's screenshot in the final report.
-- Using git, clone the following repository:
-    [https://github.com/theflash2k/CY243-L.git](https://github.com/theflash2k/CY243-L.git)
+- Using git, clone the following repository: [https://github.com/theflash2k/CY243-L.git](https://github.com/theflash2k/CY243-L.git) and list the contents of the cloned repository (including hiddent files)
 
 ---
 
-<p text-align="center">
+<h2 style="text-align: center">
     <b>Good Luck!</b>
-</p>
+</h2>
+
+---
