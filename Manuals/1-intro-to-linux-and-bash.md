@@ -389,10 +389,14 @@ history
 
 ## Class Task - 1
 
-1. List all files inside the `/usr/share` directory
-2. Create a new user called `test`
-3. Create a new group called `testgrp`
-4. Add the `test` user to the `testgrp` group
-5. Create 2 new files called `test1.txt` and `test2.txt` inside the `/home/kali` directory and them delete them.
+1. Create a new user called `test`
+2. Create a new group called `testgrp`
+3. Add the `test` user to the `testgrp` group
+4. Create 2 new files called `test1.txt` and `test2.txt` inside the `/home/kali` directory and them delete them.
+5. Create a new file called my-file. Write Hello World! into the file. Change the group of this file to testgrp and give it the following permissions:
+    - User can read and write into the file
+    - Groups can read and execute the file
+    - Others can read from the file
+    - Do this using both naming and numbers conventions.
 
 ---
