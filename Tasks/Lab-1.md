@@ -1,4 +1,4 @@
-# Lab Task - 1
+# Lab 1 - Introduction to Linux and Bash
 
 ---
 
