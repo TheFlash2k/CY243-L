@@ -29,30 +29,12 @@ For most of the labs, you will be provided with a simple `deploy.sh`. You will n
 In Lab-1, the Tasks have been defined in the [../Tasks]('Tasks') directory. Each task has a `README.md` file which contains the instructions for the task.
 Another useful command has been added called `check`, which will verify your status; how much you've done (successfully) and how much remains to be done.
 
-```bash
-$ check
+![Alt text](images/image.png)
 
-FAILED - User kali-auto-user created
-FAILED - Group kali-auto-group created
-FAILED - CY243-L Repository cloned locally
-FAILED - Checking /tmp/test-<roll-number> and test.txt inside the folder and checking the file contents.
-FAILED - Checking if kali-auto-user is owner of /tmp/test-<roll-number>
-FAILED - Checking if kali-auto-group is group-owner of /tmp/test-<roll-number>/test2.txt
-FAILED - Checking the permissions on the file (if they match the criteria defined in the task.)
-```
+![Alt text](images/image-1.png)
 
 Upon successful completion of a task (let's say adding a new user), once that's done, you'll need to run `check` again to verify your progress
 
-```bash
-$ check
-
-PASSED - User kali-auto-user created
-FAILED - Group kali-auto-group created
-FAILED - CY243-L Repository cloned locally
-FAILED - Checking /tmp/test-<roll-number> and test.txt inside the folder and checking the file contents.
-FAILED - Checking if kali-auto-user is owner of /tmp/test-<roll-number>
-FAILED - Checking if kali-auto-group is group-owner of /tmp/test-<roll-number>/test2.txt
-FAILED - Checking the permissions on the file (if they match the criteria defined in the task.)
-```
+![Alt text](images/image-2.png)
 
 ---
