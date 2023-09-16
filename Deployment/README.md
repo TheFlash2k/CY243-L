@@ -26,6 +26,8 @@ For most of the labs, you will be provided with a simple `deploy.sh`. You will n
 
 ![Alt text](images/image.png)
 
+> NOTE: Instructors, you will simply let each student deploy the lab environment, let them perform their tasks and once done; they can take a screenshot of task completion and if you're with them; show it to you as well.
+
 ## Lab - 1
 
 In Lab-1, the Tasks have been defined in the [Tasks](../Tasks) directory. Each task has a `README.md` file which contains the instructions for the task.
