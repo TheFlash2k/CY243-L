@@ -57,8 +57,8 @@ if [[ $perms != "-rwxr-x---" ]]; then failed; else passed; fi
 echo -n "Checking the permissions on the file (if they match the criteria defined in the task.)"
 if [ -f /tmp/test-21*/test2.txt ]; then echo " [Actual Permissions: $perms]"; else echo; fi
 
-if [[ tests != t_tests ]]; then
+if [[ tests -ne t_tests ]]; then
     exit 1
 fi
 
-printf "${GREEN}Done!${NC} - All the tasks have been completed!"
+printf "\n${GREEN}Done!${NC} - All the tasks have been completed!\n"
