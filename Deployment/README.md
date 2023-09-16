@@ -24,12 +24,12 @@ For quizzes, I'll make use of CTFd to host quiz; either locally or remotely and 
 
 For most of the labs, you will be provided with a simple `deploy.sh`. You will need to have `docker` installed on your system to deploy each lab successfully. Each provided lab will have an isolated environment for you to practice in. You can simply type `exit` to leave the provided lab environment.
 
+![Alt text](images/image.png)
+
 ## Lab - 1
 
 In Lab-1, the Tasks have been defined in the [../Tasks]('Tasks') directory. Each task has a `README.md` file which contains the instructions for the task.
 Another useful command has been added called `check`, which will verify your status; how much you've done (successfully) and how much remains to be done.
-
-![Alt text](images/image.png)
 
 ![Alt text](images/image-1.png)
 
