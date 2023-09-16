@@ -90,9 +90,13 @@ This file is created by <your-name>
 - Change the owner of the `test-<roll-number>` folder to `kali-auto-user` and also the file (Hint: `-R`)
 - Change the group of the file `test2.txt` to `kali-auto-group`
 - Change the permissions as the following:
-    Owner: Read, Write, Execute
-    Group: Read, Execute
-    Others: None
+
+    **Owner: Read, Write, Execute**
+  
+    **Group: Read, Execute**
+  
+    **Others: None**
+  
     > In the report, add both the numbers for this permission as well as the character-set for this permission.
 - Try reading the file `test2.txt` using the `cat` command as the current user. Can you read it? If not, answer in report; why?
 - Login as `kali-auto-user` and check if its part of the group
