@@ -28,7 +28,7 @@ For most of the labs, you will be provided with a simple `deploy.sh`. You will n
 
 ## Lab - 1
 
-In Lab-1, the Tasks have been defined in the [../Tasks]('Tasks') directory. Each task has a `README.md` file which contains the instructions for the task.
+In Lab-1, the Tasks have been defined in the [Tasks](../Tasks) directory. Each task has a `README.md` file which contains the instructions for the task.
 Another useful command has been added called `check`, which will verify your status; how much you've done (successfully) and how much remains to be done.
 
 ![Alt text](images/image-1.png)
