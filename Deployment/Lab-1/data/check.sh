@@ -38,7 +38,7 @@ if [ -d /tmp/test-21* ] && [ -f /tmp/test-21*/test2.txt ]; then
 else
     failed
 fi
-echo "Checking /tmp/test-<roll-number> and test.txt inside the folder and checking the file contents."
+echo "Checking /tmp/test-<roll-number> and test2.txt inside the folder and checking the file contents."
 
 folder_owner=`stat -c %U /tmp/test-21* 2>/dev/null`
 file_group=`stat -c %G /tmp/test-21*/test2.txt 2>/dev/null`
