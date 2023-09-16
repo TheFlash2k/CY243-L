@@ -20,3 +20,35 @@ For quizzes, I'll make use of CTFd to host quiz; either locally or remotely and 
 
 ---
 
+## Lab - 1
+
+For Lab-1, `deploy.sh` has been provided. You will need to have `docker` installed on your system to deploy this lab successfully. Each provided lab will have an isolated environment for you to practice in. You can simply type `exit` to leave the provided lab environment.
+Another useful command has been added called `check`, which will verify your status; how much you've done (successfully) and how much remains to be done.
+
+```bash
+$ check
+
+FAILED - User kali-auto-user created
+FAILED - Group kali-auto-group created
+FAILED - CY243-L Repository cloned locally
+FAILED - Checking /tmp/test-<roll-number> and test.txt inside the folder and checking the file contents.
+FAILED - Checking if kali-auto-user is owner of /tmp/test-<roll-number>
+FAILED - Checking if kali-auto-group is group-owner of /tmp/test-<roll-number>/test2.txt
+FAILED - Checking the permissions on the file (if they match the criteria defined in the task.)
+```
+
+Upon successful completion of a task (let's say adding a new user), once that's done, you'll need to run `check` again to verify your progress
+
+```bash
+$ check
+
+PASSED - User kali-auto-user created
+FAILED - Group kali-auto-group created
+FAILED - CY243-L Repository cloned locally
+FAILED - Checking /tmp/test-<roll-number> and test.txt inside the folder and checking the file contents.
+FAILED - Checking if kali-auto-user is owner of /tmp/test-<roll-number>
+FAILED - Checking if kali-auto-group is group-owner of /tmp/test-<roll-number>/test2.txt
+FAILED - Checking the permissions on the file (if they match the criteria defined in the task.)
+```
+
+---

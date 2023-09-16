@@ -21,6 +21,6 @@ if [[ $? != 0 ]]; then
 fi
 
 echo "[*] Preparing the lab..."
-docker build -t cy243l-lab1 .
+docker build -t cy243l-lab1 ./data &>/dev/null
 echo "[+] Done!. Spawning an interactive shell into the lab environment"
 docker run -it --rm --name "cy243l-lab1-instance" --hostname 'lab1' cy243l-lab1
