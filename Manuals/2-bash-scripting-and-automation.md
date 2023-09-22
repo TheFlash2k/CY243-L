@@ -146,6 +146,36 @@ ping_output=`ping 192.168.0.1`
 echo "Output: $ping"
 ```
 
+### Pipes
+
+Pipes in linux; simply work by getting the output of command and pass as input to another command. These are represented by `|` symbol. These are useful when we want to chain multiple commands and then work on the output of their commands equally.
+
+Example
+
+Suppose a scenario, where want to only get the ip address of a single interface from `ip addr show` command.
+
+```bash
+ip addr show <interface> | grep <ip-to-search>
+
+## Look at what the command `grep` does.
+
+## These can further be chained 
+ip addr show <interface> | grep <ip-to-search> | cut -d '/' -f 1
+
+## Look at what cut command does.
+
+```
+
+### Redirectors
+
+Redirectors; simply redirect the output to a file or from a file into the command. These can be useful in many scenarios.
+
+```bash
+#  > represents redirecting the output of stdout into a file or anything
+# >> represents redirecting the output whilst mainting the existing output
+#  < represnts taking input from a file and pass it into a specific command.
+```
+
 ### If-Else Statements
 
 In order to use if-else statements in bash, we can use the following syntax:
