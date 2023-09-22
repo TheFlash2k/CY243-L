@@ -16,7 +16,7 @@ In Linux, we have multiple commands that act as the `notepad` of linux. Such sof
 
 - nano
 - vim
-- emacs
+- emacs  
 
 In this course, we'll be studying nano.
 
@@ -97,19 +97,6 @@ Some of the system variables are:
 
 User defined variables are the variables that are defined by the user and are used to store user related information.
 
-### Read Input from the User
-
-In order to read input from the user, we can use the `read` command.
-
-```bash
-read <variable-name>
-
-## If we want a message to be displayed before the user enters the value, we can use the following syntax:
-read -p "Enter your name: " <variable-name>
-```
-
-Now, the value that the user enters will be stored in the variable.
-
 ### Unsetting a Variable
 
 In order to unset a variable, we can use the `unset` command.
@@ -146,7 +133,20 @@ ping_output=`ping 192.168.0.1`
 echo "Output: $ping"
 ```
 
-### Pipes
+## Read Input from the User
+
+In order to read input from the user, we can use the `read` command.
+
+```bash
+read <variable-name>
+
+## If we want a message to be displayed before the user enters the value, we can use the following syntax:
+read -p "Enter your name: " <variable-name>
+```
+
+Now, the value that the user enters will be stored in the variable.
+
+## Pipes
 
 Pipes in linux; simply work by getting the output of command and pass as input to another command. These are represented by `|` symbol. These are useful when we want to chain multiple commands and then work on the output of their commands equally.
 
@@ -166,7 +166,7 @@ ip addr show <interface> | grep <ip-to-search> | cut -d '/' -f 1
 
 ```
 
-### Redirectors
+## Redirectors
 
 Redirectors; simply redirect the output to a file or from a file into the command. These can be useful in many scenarios.
 
@@ -176,7 +176,22 @@ Redirectors; simply redirect the output to a file or from a file into the comman
 #  < represnts taking input from a file and pass it into a specific command.
 ```
 
-### If-Else Statements
+Example:
+
+```bash
+# Suppose, we want to redirect the output of `ip addr show` into a file called `ip.txt`
+ip addr show > ip.txt
+
+# Suppose, we want to redirect the output of `ip addr show` into a file called `ip.txt` whilst mainting the existing output
+ip addr show >> ip.txt
+
+# Now, suppose we want to take the input from a file and pass it into a command
+
+less < ip.txt
+
+> If anyone wants to read more about redirectors, they can read [this](https://www.gnu.org/software/bash/manual/html_node/Redirections.html) documentation.
+
+## If-Else Statements
 
 In order to use if-else statements in bash, we can use the following syntax:
 
@@ -187,9 +202,13 @@ then
 else
     <statements>
 fi
+
+## Thse can also be oneliners as well
+if [ <condition> ]; then <statements>; else <statements>; fi
+
 ```
 
-### For Loop
+## For Loop
 
 In order to use for loop in bash, we can use the following syntax:
 
@@ -200,7 +219,27 @@ do
 done
 ```
 
-### While Loop
+These can also be written on one line as:
+
+```bash
+for <variable-name> in <list>; do <statements(seperated-by-a-comma)>; done
+```
+
+Consider a simple example that will print 1 to 10
+
+```bash
+## Multiple lines:
+for i in $(seq 1 10) # this can also be written as `seq 1 10`
+do
+    echo "Current number is $i"
+    echo "======"
+done
+
+## Single line:
+for i in `seq 1 10`; do echo "Current number is $i"; echo "======"; done
+```
+
+## While Loop
 
 In order to use while loop in bash, we can use the following syntax:
 
@@ -212,7 +251,7 @@ do
 done
 ```
 
-### Arguments
+## Arguments
 
 Arguments are the values that are passed to the script when it is executed.
 
@@ -223,6 +262,9 @@ $0 # Stores the name of the script
 $1 # Stores the first argument
 $2 # Stores the second argument
 $n # Stores the nth argument
+
+# In order to find the total number of arguments, we can use the following syntax:
+$# # Stores the total number of arguments
 ```
 
 ### Exit Status
@@ -235,7 +277,7 @@ In order to access the exit status, we can use the following syntax:
 $? # Stores the exit status
 ```
 
-### Functions
+## Functions
 
 Functions are the set of statements that are executed when they are called.
 
@@ -253,26 +295,33 @@ In order to call a function, we can use the following syntax:
 function_name
 ```
 
+Functions can be passed arguments as well.
+
+Example:
+We'll write a function that will take name as an argument and print it
+
+```bash
+function print_name() {
+    echo "My name is: $1"
+}
+print_name "Ali Taqi"
+```
+
 ---
 
-## Class Task
+## Class Tasks
 
 ### Task 1
 
-Write a bash script that takes a number as an argument and prints whether the number is even or odd. The output should be "True" or "False". Case matters. The file must be inside `/tmp/` directory and named as `even-odd.sh`.
+Write a bash script that will ask user for input; name and age. Then, print the name and age to the stdout.
+Example:
+
+> Enter your name: Ali
+> Enter your age: 20
+> Your name is Ali and you are 20 years old.
 
 ### Task 2
 
-Using a for loop in bash, try and ping the subnet "172.16.0.0/24" and print the IP addresses that are up.
-Output should be like:
-"172.16.0.0 = UP"
-
-> Hint: Use `ping -c 1 <ip-address>` to ping the IP address once.
-
-The file must be inside `/tmp/` directory and named as `ping.sh`.
-
-### Task 3
-
-Create a function called `create_user` that takes two arguments: username and password. The function should create a user with the given username and password. Also, write another function called `add_to_group` that takes two arguments: username and groupname. The function should add the user to the given group. The file must be inside `/tmp/` directory and named as `user.sh`. The username, password and groupname should be provided from the command line as arguments to the script.
+Using `ip addr show <interface>`, extract the ip address of a specific interface.
 
 ---
