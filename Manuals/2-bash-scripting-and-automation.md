@@ -118,6 +118,34 @@ In order to unset a variable, we can use the `unset` command.
 unset <variable-name>
 ```
 
+### Variables Expansion
+
+Variable expansions refers to expanding a variable inside another variable or in a command. Variables can be expanded by prepending the name with `$`. Also, in order for the variable to be expanded, it must be wrap in `"`.
+
+Example:
+
+```bash
+# Suppose, we have a variable called
+name="Ali"
+
+# if we want to expand it, we can call it like this:
+echo "My name is $name"
+
+## Also, if we want to you it with another command, we can use it like this:
+ip=192.168.0.0
+octet=24
+nmap -sn "$ip/$octet"
+```
+
+Another case, in which we want tsotre the output of a command inside a variable, we will use `\`` symbol.
+
+Example:
+
+```bash
+ping_output=`ping 192.168.0.1`
+echo "Output: $ping"
+```
+
 ### If-Else Statements
 
 In order to use if-else statements in bash, we can use the following syntax:
