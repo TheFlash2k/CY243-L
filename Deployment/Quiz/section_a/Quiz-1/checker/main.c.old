@@ -175,24 +175,37 @@ void question_2() {
     }
 
     struct stat fs;
-    if(stat(file, &fs) >= 0) {
-        struct passwd *pHandle = getpwuid(fs.st_uid);
-        struct group *gHandle  = getgrgid(fs.st_gid);
-        if(strcmp(pHandle->pw_name, userOwnedBy) == 0) {
-            logger(23, SUCCESS);
-        } else {
+    if(stat(file, &fs) < 0) {
+        logger(23, ERROR);
+    } else {
+        struct passwd *pHandle;
+        bool _found = false;
+        while((pHandle = getpwent())) {
+            if(strcmp(pHandle->pw_name, userOwnedBy) == 0) {
+                if(pHandle->pw_uid == fs.st_uid) {
+                    logger(23, SUCCESS);
+                    _found = true;
+                    break;
+                }
+            }
+        }
+        if(!_found) {
             logger(23, ERROR);
         }
-        if(strcmp(gHandle->gr_name, group) == 0) {
-            logger(24, SUCCESS);
-        } else {
+        // Also check if the file is group owned by the group
+        struct group *gHandle;
+        while((gHandle = getgrent())) {
+            if(strcmp(gHandle->gr_name, group) == 0) {
+                if(gHandle->gr_gid == fs.st_gid) {
+                    logger(24, SUCCESS);
+                    _found = true;
+                    break;
+                }
+            }
+        }
+        if(!_found) {
             logger(24, ERROR);
         }
-        
-    }
-    else {
-        logger(23, ERROR);
-        logger(24, ERROR);
     }
     if(perms && strcmp(permissions, "rw- r-- ---") == 0) { logger(25, SUCCESS); } else { logger(25, ERROR); }
 }
