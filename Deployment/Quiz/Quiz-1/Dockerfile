@@ -10,8 +10,7 @@ COPY ./checker/checker /bin/checker
 COPY ./README.md /home/kali/README.md
 RUN chown kali:kali /home/kali/README.md
 RUN chmod 644 /home/kali/README.md
-RUN chown root:root /bin/check
-RUN chmod 4755 /bin/check
+RUN chown root:root /bin/checker
+RUN chmod 4755 /bin/checker
 ENV HOSTNAME="quiz-1"
 USER kali
-RUN checker

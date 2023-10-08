@@ -27,9 +27,6 @@ instance_name="quiz-1"
 echo -e  "[\e[34m*\e[0m] Preparing the lab..."
 docker build -t "$image_name" .
 echo -e  "[\e[32m+\e[0m] Done!. Spawning an interactive shell into the lab environment"
-echo -e "\n=====================\n==> Make sure you follow the rules defined in the PDF. Good luck!\nType \e[34mcheck\e[0m to verify your answers\n====================="
+echo -e "\n=====================\n==> Make sure you follow the rules defined in the PDF. Good luck!\nType \e[34mchecker\e[0m to verify your answers\n====================="
 docker run -it --rm --name "$instance_name-instance" --hostname "$hostname" "$image_name"
-
 echo -e "\n=====================\nHope you had a good quiz and took screenshots.. BB.. ;)\n====================="
-
-checker
