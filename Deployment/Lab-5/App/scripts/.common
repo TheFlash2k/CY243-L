@@ -1,0 +1,79 @@
+#!/bin/bash
+
+export running=0
+
+function get_container_id() {
+
+	if [[ $# > 2 ]]; then
+		echo "No argument provided to get_container_id"
+		echo "Usage: get_container_id <name>"
+		exit 1
+	fi
+	
+	if [[ ! -z $2 ]]; then
+		extend="--no-trunc"
+	else
+		extend=""
+	fi
+
+	CONTAINER_ID=$(docker ps $extend | grep $1 | awk '{print $1}')
+
+	if [[ -z $CONTAINER_ID ]]; then
+		echo "No container found with name $1"
+		exit 1
+	fi
+
+	echo $CONTAINER_ID
+}
+
+function check_docker() {
+	if ! command -v docker &> /dev/null; then
+		echo "[ERROR] Docker is not installed"
+		exit 1
+	fi
+
+	echo "[*] Found: $(docker --version)"
+	if ! command -v docker-compose &> /dev/null; then
+		echo "[ERROR] Docker-compose is not installed"
+		exit 1
+	fi
+	echo "[*] Found: $(docker-compose --version)"
+}
+
+function check_if_running() {
+
+    if [[ $# != 1 ]]; then
+		echo "No argument provided to check_if_running"
+		echo "Usage: check_if_running <name>"
+		return 1
+	fi
+
+    echo -n "Checking if container $1 is running"    
+    id=$(docker ps --format '{{.Names}}' | grep $1 | awk '{print $1}')
+    if [[ -z $id ]]; then
+        echo " : No."
+		return 0
+    fi
+	running=$((running+1))
+    echo " : Yes."
+	return 1
+}
+
+function get_image_id() {
+
+	if [[ $# != 1 ]]; then
+		echo "No argument provided to get_image_id"
+		echo "Usage: get_image_id <name>"
+		exit 1
+	fi
+
+	IMAGE_ID=$(docker images | grep $1 | awk '{print $3}')
+
+	if [[ -z $IMAGE_ID ]]; then
+		echo "No image found with name $1"
+		exit 1
+	fi
+
+	echo $IMAGE_ID
+
+}
