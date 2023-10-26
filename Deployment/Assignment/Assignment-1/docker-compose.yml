@@ -1,0 +1,42 @@
+version: "3"
+services:
+
+  attacker:
+    image: theflash2k/cy243l-attacker:recon
+    hostname: kali
+    command: bash -c "while true; do sleep 10000; done"
+    networks:
+      base:
+        ipv4_address: 10.10.18.21
+    extra_hosts:
+      - "webapp.local:10.10.18.17"
+      - "share.local:10.10.18.95"
+      - "udp.local:10.10.18.47"
+
+  webapp-local:
+    image: theflash2k/cy243l-recon-webapp.local
+    hostname: webapp
+    networks:
+      base:
+        ipv4_address: 10.10.18.17
+
+  share-local:
+    image: theflash2k/cy243l-recon-share.local
+    hostname: share
+    networks:
+      base:
+        ipv4_address: 10.10.18.95
+
+  udp-local:
+    image: theflash2k/cy243l-recon-udp.local
+    hostname: udp
+    networks:
+      base:
+        ipv4_address: 10.10.18.47
+
+networks:
+  base:
+    driver: bridge
+    ipam:
+      config:
+        - subnet: 10.10.18.0/24

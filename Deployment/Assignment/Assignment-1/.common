@@ -1,0 +1,121 @@
+#!/bin/bash
+
+export running=0
+
+function get_container_id() {
+
+	if [[ $# > 2 ]]; then
+		echo "No argument provided to get_container_id"
+		echo "Usage: get_container_id <name>"
+		exit 1
+	fi
+	
+	if [[ ! -z $2 ]]; then
+		extend="--no-trunc"
+	else
+		extend=""
+	fi
+
+	CONTAINER_ID=$(docker ps $extend | grep $1 | awk '{print $1}')
+
+	if [[ -z $CONTAINER_ID ]]; then
+		echo "No container found with name $1"
+		exit 1
+	fi
+
+	echo $CONTAINER_ID
+}
+
+function check_docker() {
+	if ! command -v docker &> /dev/null; then
+		echo "[ERROR] Docker is not installed"
+		exit 1
+	fi
+
+	echo "[*] Found: $(docker --version)"
+	if ! command -v docker-compose &> /dev/null; then
+		echo "[ERROR] Docker-compose is not installed"
+		exit 1
+	fi
+	echo "[*] Found: $(docker-compose --version)"
+}
+
+function check_if_running() {
+
+    if [[ $# != 1 ]]; then
+		echo "No argument provided to check_if_running"
+		echo "Usage: check_if_running <name>"
+		return 1
+	fi
+
+    echo -n "Checking if container $1 is running"    
+    id=$(docker ps --format '{{.Names}}' | grep $1 | awk '{print $1}')
+    if [[ -z $id ]]; then
+        echo " : No."
+		return 0
+    fi
+	running=$((running+1))
+    echo " : Yes."
+	return 1
+}
+
+function get_image_id() {
+
+	if [[ $# != 1 ]]; then
+		echo "No argument provided to get_image_id"
+		echo "Usage: get_image_id <name>"
+		exit 1
+	fi
+
+	IMAGE_ID=$(docker images | grep $1 | awk '{print $3}')
+
+	if [[ -z $IMAGE_ID ]]; then
+		echo "No image found with name $1"
+		exit 1
+	fi
+
+	echo $IMAGE_ID
+
+}
+
+# Making a function so i can use it inside the cleanup.sh
+function _stop() {
+
+    check_if_running attacker
+    check_if_running webapp
+    check_if_running share
+    check_if_running udp
+
+    if [[ $running == 0 ]]; then
+        echo "No running containers found."
+    else
+        echo "Stopping the containers..."
+        docker-compose down
+
+        if [[ $? != 0 ]]; then
+            echo "Failed to stop the containers. Trying to manually stop..."
+
+            attacker=$(get_container_id attacker)
+            webapp=$(get_container_id webapp)
+            share=$(get_container_id share)
+            udp=$(get_container_id udp)
+
+            echo "Attacker container ID: $attacker"
+            echo "Webapp container ID: $webapp"
+            echo "Share container ID: $share"
+            echo "UDP container ID: $udp"
+
+            docker stop $attacker $webapp $share $tcp $udp
+        fi
+    fi
+
+    if [[ ! $(docker network ls | grep base) == "" ]]; then
+        echo "Network 'base' exists. Deleting..."
+        docker network rm base
+        if [[ $? != 0 ]]; then
+            echo "Failed to delete the network."
+            exit 1
+        fi
+    fi
+
+}
