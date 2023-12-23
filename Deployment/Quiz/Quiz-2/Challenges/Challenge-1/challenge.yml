@@ -1,0 +1,27 @@
+name: "Challenge-1"
+author: "TheFlash2k"
+category: "Privilege Escalation"
+description: "SSH into the server using the following credentials:\n\n`ashfaq:ashfaq`"
+value: 50
+type: container
+
+extra:
+    initial: 50
+    decay: 1
+    minimum: 50
+    image: quiz2_privesc_chal1:latest
+    port: 22
+    command: ""
+    volumes: ""
+    ctype: ssh
+
+image: ./src
+flags:
+    - {
+        type: "regex",
+        content: "CY243L{53tu1ds_ar3_p0w3rful_[0-9a-fA-F]{7}_[5-8a-eR-Z]{4}_[0-9a-zA-Z]{4}}",
+        data: "case_sensitive",
+    }
+
+state: visible
+version: "0.1"
