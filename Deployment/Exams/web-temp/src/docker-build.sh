@@ -1,0 +1,1 @@
+docker build -t final_web_temp .

@@ -1,0 +1,27 @@
+name: "cancel"
+author: "TheFlash2k"
+category: "Pwn"
+description: "I'm not sure what this does, but it seems to be vulnerable to something."
+value: 50
+type: container
+
+extra:
+    initial: 50
+    decay: 1
+    minimum: 50
+    image: final_pwn_cancel:latest
+    port: 8000
+    command: ""
+    volumes: ""
+    ctype: tcp
+
+image: ./src
+flags:
+    - {
+        type: "regex",
+        content: "CY243L{0v3rwr1t1ng_th3se_varsss_[0-9a-fA-F]{7}_[5-8a-eR-Z]{4}_[0-9a-zA-Z]{4}}",
+        data: "case_sensitive",
+    }
+
+state: visible
+version: "0.1"

@@ -1,0 +1,27 @@
+name: "Temp"
+author: "TheFlash2k"
+category: "Web"
+description: "I'm temporarily storing files for you..."
+value: 100
+type: container
+
+extra:
+    initial: 100
+    decay: 1
+    minimum: 100
+    image: final_web_temp:latest
+    port: 8000
+    command: ""
+    volumes: ""
+    ctype: web
+
+image: ./src
+flags:
+    - {
+        type: "regex",
+        content: "CY243L{sst1s_1n_fl4sk_ar3_ez_pz_[0-9a-fA-F]{7}_[5-8a-eR-Z]{4}_[0-9a-zA-Z]{4}}",
+        data: "case_sensitive",
+    }
+
+state: visible
+version: "0.1"
