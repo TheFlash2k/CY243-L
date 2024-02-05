@@ -1,0 +1,27 @@
+name: "Temp-PrivEsc"
+author: "TheFlash2k"
+category: "PrivEsc"
+description: "Based on the credentials you got from `Temp`, it's time you escalate your privileges."
+value: 50
+type: container
+
+extra:
+    initial: 50
+    decay: 1
+    minimum: 50
+    image: final_privesc_temp:latest
+    port: 22
+    command: ""
+    volumes: ""
+    ctype: ssh
+
+image: ./src
+flags:
+    - {
+        type: "regex",
+        content: "CY243L{c0nf1g_us3rs_and_su1d_ez_pz_[0-9a-fA-F]{7}_[5-8a-eR-Z]{4}_[0-9a-zA-Z]{4}}",
+        data: "case_sensitive",
+    }
+
+state: visible
+version: "0.1"

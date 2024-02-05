@@ -2,13 +2,13 @@ name: "intro"
 author: "TheFlash2k"
 category: "Web"
 description: "The Introductions have to be really easy, no?"
-value: 50
+value: 100
 type: container
 
 extra:
-    initial: 50
+    initial: 100
     decay: 1
-    minimum: 50
+    minimum: 100
     image: final_web_intro:latest
     port: 80
     command: ""
@@ -19,7 +19,7 @@ image: ./src
 flags:
     - {
         type: "regex",
-        content: "CY243L{sql1_b4s1c_4uth_byp@ss3s_[0-9a-fA-F]{7}_[5-8a-eR-Z]{4}_[0-9a-zA-Z]{4}}",
+        content: "CY243L{b4s1c_lf1_f1lt3r_r3ad_[0-9a-fA-F]{7}_[5-8a-eR-Z]{4}_[0-9a-zA-Z]{4}}",
         data: "case_sensitive",
     }
 

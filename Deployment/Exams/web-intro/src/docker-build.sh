@@ -1,3 +1,3 @@
 #!/bin/bash
 
-docker build -t finals_web_intro .
+docker build -t final_web_intro .

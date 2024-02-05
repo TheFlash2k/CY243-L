@@ -1,6 +1,6 @@
 FROM theflash2k/pwn-chal
 
-ENV CHAL_NAME=cancel
+ENV CHAL_NAME=jmp
 
 COPY ${CHAL_NAME} /app/${CHAL_NAME}
 RUN apt update && apt install -y gcc-multilib

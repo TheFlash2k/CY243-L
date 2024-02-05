@@ -11,5 +11,10 @@ function get_flag() {
 
 rm -f /flag /app/flag.txt
 rm -- "$0"
-export FLAG=`get_flag`
-python3 /app/app.py
+
+sed -i "s/ACTUAL_FLAG_GOES_HERE/`get_flag`/g" /var/www/html/flag.php
+
+pew 2>/dev/null
+while [[ $? != 0 ]]; do
+    apache2ctl -D FOREGROUND
+done

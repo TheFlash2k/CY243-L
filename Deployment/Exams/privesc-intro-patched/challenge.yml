@@ -1,0 +1,27 @@
+name: "intro-patched-PrivEsc"
+author: "TheFlash2k"
+category: "PrivEsc"
+description: "Based on the credentials you got from `intro-patched`, it's time you escalate your privileges."
+value: 100
+type: container
+
+extra:
+    initial: 100
+    decay: 1
+    minimum: 100
+    image: final_privesc_intro_patched:latest
+    port: 22
+    command: ""
+    volumes: ""
+    ctype: ssh
+
+image: ./src
+flags:
+    - {
+        type: "regex",
+        content: "CY243L{env_0ver11de_ez?[0-9a-fA-F]{7}_[5-8a-eR-Z]{4}_[0-9a-zA-Z]{4}}",
+        data: "case_sensitive",
+    }
+
+state: visible
+version: "0.1"
