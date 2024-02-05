@@ -1,0 +1,27 @@
+name: "Question-4"
+author: "TheFlash2k"
+category: "Final-Exam"
+description: "SSH into the server using the following credentials:\n\n`cy102l:cy102l`"
+value: 50
+type: container
+
+extra:
+    initial: 50
+    decay: 1
+    minimum: 50
+    image: cy102l/final_q4:latest
+    port: 22
+    command: ""
+    volumes: ""
+    ctype: ssh
+
+image: ./src
+flags:
+    - {
+        type: "regex",
+        content: "CY102L{l0r3m_1psum_and_just_check_[0-9a-fA-F]{7}_[5-8a-eR-Z]{4}_[0-9a-zA-Z]{8}}",
+        data: "case_sensitive",
+    }
+
+state: visible
+version: "0.1"
